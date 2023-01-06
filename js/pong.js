@@ -1,18 +1,24 @@
 //https://www.youtube.com/watch?v=s4my97_KOjg
-const canvas = document.querySelector("canvas");
-const playButton = document.querySelector("#play")
+
+var requestID = null;
+var ball = null;
+var player1 = null,
+    player2 = null;
+
+var canvas = document.querySelector("canvas");
+var playButton = document.querySelector("#play_btn");
+var saveButton = document.querySelector("#save_btn");
+var divButton = document.querySelector("#play");
+const divCanvas = document.querySelector("#canvas");
 
 const audioElement_g = new Audio('../js/pong_g.mp3'),
     audioElement_d = new Audio('../js/pong_d.mp3');
 
-const context = canvas.getContext("2d"),
-    width = screen.width * 5 / 10,   //canvas du jeu vaut 5/10 de l'écran
-    height = screen.height * 5 / 10,
-    ratio = width / height;  //calcul du ratio
-canvas.width = width * ratio;
-canvas.height = height * ratio;
+var context = null;
+var width = null;
+var height = null;
+var ratio = null;
 
-context.scale(ratio, ratio);
 
 //LES DIFFERENTES CLASS//	
 class Ball {
@@ -44,22 +50,15 @@ class Ball {
 
         if (this.x + this.r > width)   //si joueur droit perd +1 score du joueur gauche
         {
-
-            context.fillStyle = 'White';   //écran blanc indique qu'un joueur a perdu
-            context.fillRect(0, 0, width, height);
             restartGame();
             player1.score++;
             player2.y = height / 2;
 
         }
         else if (this.x - this.r < 0) {
-            context.fillStyle = 'White';
-            context.fillRect(0, 0, width, height);
-            restartGame();
+            StopGame();
             player2.score++;
             player2.y = height / 2;
-
-
         }
     }
 
@@ -76,7 +75,6 @@ class Ball {
 
         if (left < pright && right > pleft && top < pbottom && bottom > ptop) //vérification des conditions pour le rebond
         {
-            //DirectionBalle(player.y, player.h);
             if (this.y <= ptop + player.h / 2) {  //permet de svoir si la balle se trouve dans la moitie supérieur de la raquette
 
                 if (this.x > width / 2) audioElement_d.play();     //sons venant de droite ou gauche
@@ -90,7 +88,6 @@ class Ball {
 
                 if (this.x > width / 2) audioElement_d.play();
                 else if (this.x < width / 2) audioElement_g.play();
-                //DirectionBalle(player.y, player.h);
                 if (Math.abs(this.vx) < 15) this.vx *= -1.02;
                 if (Math.abs(this.vx) > 15) this.vx *= -1;
                 this.vy = Math.abs(this.vy);
@@ -109,10 +106,9 @@ class Ball {
     }
 }
 
-
 class Player    //création de la class "Player"
 {
-    constructor(x, xscore, h)    //valeur de chaque raquette
+    constructor(x, h)    //valeur de chaque raquette
     {
         this.x = x;
         this.y = height / 2;
@@ -120,7 +116,6 @@ class Player    //création de la class "Player"
         this.h = h;
 
         this.score = 0;
-        this.xscore = xscore;
     }
 
     show()       //affiche les raquettes en blanc
@@ -129,9 +124,6 @@ class Player    //création de la class "Player"
             left = this.x - this.w / 2;
         context.strokeStyle = 'white';
         context.fillRect(left, top, this.w, this.h);
-
-        context.font = "30px Arial";
-        context.fillText("Score : " + this.score, this.xscore, 30);
     }
 }
 
@@ -139,40 +131,22 @@ class Player    //création de la class "Player"
 
 //Function DES MOUVEMNT DES JOUEURS,BALLE,ET IA//
 
-addEventListener("mousemove", playermove);
-function playermove(event) {
-
-    var canvasLocation = canvas.getBoundingClientRect();
-    player1.y = (event.clientY - canvasLocation.y);
-}
-
 function DirectionBalle(PlayerY, PlayerH) {    //direction de la balle en fonction de la position de la balle sur la raquette
 
     var impact = ball.y - PlayerY;   //position de la balle a l'impact sur la raquette
     var ratio = PlayerH / (PlayerH / 2);         //calcul d'un ratio entre 0 et 10
-    var vRela = Math.sqrt(ball.vx * ball.vx + ball.vy * ball.vy);
     ball.vy = Math.round(impact * ratio / 10);   //applique un valeur arrondi du ratio sur la vitesse en y
-    //ball.vx = Math.sqrt(vRela * vRela - ball.vy * ball.vy);
 }
 
 
 //Function D'ANIMATION//
-
-var ball = new Ball(-6, 6);
-var player1 = new Player(15, 50, 80),
-    player2 = new Player(width - 15, width - 150, 80);
-
-
-
-function raquette_2() {                                               //*                
-    window.requestAnimationFrame(raquette_2);  		//voir fonction animate
+function raquette_2() {
     if (0 < player2.y < height) {
-        player2.y += ball.vy * 0.85;  //faity bougé l'IA grâce a la vitesse en y de la balle
+        player2.y += ball.vy * 0.80;  //faity bougé l'IA grâce a la vitesse en y de la balle
     }
 }
 
 function restartGame()     //redémarre le jeu quand un joueur a perdu ou 
-//quand l'on doit remettre les score à 0
 {
     //dirige la prochaine balle en fonction du joueur qui a perdu
     if (ball.x > width / 2) {
@@ -187,9 +161,47 @@ function restartGame()     //redémarre le jeu quand un joueur a perdu ou
     }
 }
 
-function animate() {
-    context.clearRect(0, 0, width, height);     //efface le canvas
+function StopGame() {
+    cancelAnimationFrame(requestID);
+    divCanvas.innerHTML = "<div id='play'><button class='game_btn' id='save_btn'>Enregistrer le score</button> <button class='game_btn' id='play_btn'>Rejouer</button></div> <canvas> </canvas>";
+    playButton = document.querySelector("#play_btn");
+    saveButton = document.querySelector("#save_btn");
+    divButton = document.querySelector("#play");
+    canvas = document.querySelector("canvas");
 
+    saveButton.addEventListener('click', () => {
+        divButton.remove();
+    });
+
+    playButton.addEventListener('click', () => {
+        divButton.remove();
+        context = canvas.getContext("2d");
+        width = screen.width * 5 / 10;   //canvas du jeu vaut 5/10 de l'écran
+        height = screen.height * 5 / 10;
+        ratio = width / height;  //calcul du ratio
+        canvas.width = width * ratio;
+        canvas.height = height * ratio;
+        context.scale(ratio, ratio);
+
+        ball = new Ball(-6, 6);
+        player1 = new Player(15, 80);
+        player2 = new Player(width - 15, 65);
+
+        addEventListener("mousemove", (event) => {
+            var canvasLocation = canvas.getBoundingClientRect();
+            player1.y = (event.clientY - canvasLocation.y);
+        });
+
+        raquette_2();
+        animate();
+    });
+
+}
+
+function animate() {
+    requestID = requestAnimationFrame(animate); //boucle à la fréquence d'animation de l'écran (60fps générallement)
+    context.clearRect(0, 0, width, height);     //efface le canvas
+    raquette_2();
     context.strokeStyle = 'white';
     context.beginPath();                   //coordonné crayon virtuel 
     context.moveTo(width / 2, 0);
@@ -204,13 +216,30 @@ function animate() {
     player1.show();           //fait les 2 raquettes(effectue les différentes action de la class Player
     player2.show();
 
-
-    requestAnimationFrame(animate); //boucle à la fréquence d'animation de l'écran (60fps générallement)
+    context.font = "1.5rem Wallpoet";
+    context.fillText("Score : " + player1.score, 30, 30);
 }
 
 
 playButton.addEventListener('click', () => {
-    playButton.remove();
+    divButton.remove();
+    context = canvas.getContext("2d");
+    width = screen.width * 5 / 10;   //canvas du jeu vaut 5/10 de l'écran
+    height = screen.height * 5 / 10;
+    ratio = width / height;  //calcul du ratio
+    canvas.width = width * ratio;
+    canvas.height = height * ratio;
+    context.scale(ratio, ratio);
+
+    ball = new Ball(-6, 6);
+    player1 = new Player(15, 80);
+    player2 = new Player(width - 15, 65);
+
+    addEventListener("mousemove", (event) => {
+        var canvasLocation = canvas.getBoundingClientRect();
+        player1.y = (event.clientY - canvasLocation.y);
+    });
+
     raquette_2();
     animate();
 });

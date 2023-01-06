@@ -6,6 +6,10 @@ html {
     color: azure;
 }
 
+#play_page {
+    overflow: hidden;
+}
+
 body {
     height: 100%;
     width: 100%;
@@ -35,12 +39,14 @@ h1 {
     height: 40rem;
     margin: auto;
     margin-top: 2rem;
+
 }
 
 canvas {
     height: 100%;
     width: 100%;
     margin-top: 0.1rem;
+    cursor: none;
 }
 
 button {
@@ -79,7 +85,7 @@ button:hover {
     width: 100%;
 }
 
-#play_btn {
+.game_btn {
     vertical-align: baseline;
     margin-top: 18rem;
 }
