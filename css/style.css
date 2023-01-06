@@ -67,12 +67,15 @@ button:hover {
 
 .head_btn {
 
-    margin-bottom: 1rem;
-    margin-left: 2rem;
-    margin-right: 2rem;
+    margin: auto;
+    margin-left: 4rem;
+    margin-right: 4rem;
+    vertical-align: baseline;
 }
 
 #head {
     width: fit-content;
     margin:auto;
+    margin-bottom: 1.5rem;
+    margin-top: 0.5rem;
 }
