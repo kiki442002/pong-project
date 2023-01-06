@@ -8,24 +8,38 @@ html {
 
 body {
     height: 100%;
-    width: 75%;
-    margin: auto;
+    width: 100%;
+    margin: 0;
+    padding: 0;
     font-family: 'Wallpoet';
     background-color: black;
-    padding: 0;
 }
 
-h1{
+h1 {
     text-align: center;
     font-size: 3.5rem;
     margin-bottom: 0.5rem;
     margin-top: 0.1rem;
 }
 
-#sub{
+#sub {
     text-align: center;
     font-size: 1.25rem;
-    margin-top:0.1rem;
+    margin-top: 0.5rem;
+}
+
+#canvas {
+    border: 0.1rem solid #FFF;
+    width: 65rem;
+    height: 40rem;
+    margin: auto;
+    margin-top: 2rem;
+}
+
+canvas {
+    height: 100%;
+    width: 100%;
+    margin-top: 0.1rem;
 }
 
 button {
@@ -49,11 +63,11 @@ button {
 
 button:hover {
     background-color: green;
-  }
+}
 
-  .head_btn{
+.head_btn {
 
     margin-bottom: 1rem;
     margin-left: 1rem;
     margin-right: 1rem;
-  }
+}
