@@ -71,3 +71,12 @@ button:hover {
     margin-left: 1rem;
     margin-right: 1rem;
 }
+
+#play {
+    text-align: center;
+    height: 100%;
+}
+
+#play_btn {
+    vertical-align: baseline;
+}
