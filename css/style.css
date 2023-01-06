@@ -79,4 +79,15 @@ button:hover {
 
 #play_btn {
     vertical-align: baseline;
+    margin: auto;
+    margin-left: 4rem;
+    margin-right: 4rem;
+    vertical-align: baseline;
+}
+
+#head {
+    width: fit-content;
+    margin: auto;
+    margin-bottom: 1.5rem;
+    margin-top: 0.5rem;
 }
