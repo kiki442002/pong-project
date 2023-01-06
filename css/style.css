@@ -20,6 +20,7 @@ h1 {
     font-size: 3.5rem;
     margin-bottom: 0.5rem;
     margin-top: 0.1rem;
+    margin: auto;
 }
 
 #sub {
@@ -75,14 +76,12 @@ button:hover {
 #play {
     text-align: center;
     height: 100%;
+    width: 100%;
 }
 
 #play_btn {
     vertical-align: baseline;
-    margin: auto;
-    margin-left: 4rem;
-    margin-right: 4rem;
-    vertical-align: baseline;
+    margin-top: 18rem;
 }
 
 #head {
