@@ -1,0 +1,15 @@
+html {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    font-family: 'Wallpoet';
+}
+
+body {
+    height: 100%;
+    width: 68%;
+    margin: auto;
+    background: url(../img/Fond.png));
+    background-size: cover;
+    padding: 0;
+}
