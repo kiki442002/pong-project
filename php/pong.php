@@ -9,8 +9,7 @@
 </head>
 
 <body>
-    <h1>Le jeu du PONG</h1>
-    <p>Venez jouer au jeu du pong et vous confronter au autres joueurs !</p>
+
 </body>
 
 </html>
