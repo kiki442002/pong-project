@@ -19,10 +19,41 @@ h1{
     text-align: center;
     font-size: 3.5rem;
     margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
 }
 
 #sub{
     text-align: center;
     font-size: 1.25rem;
-    margin-top:0.5rem;
+    margin-top:0.1rem;
 }
+
+button {
+    font-family: 'Wallpoet';
+    display: inline-block;
+    background-color: #000000;
+    border-radius: 1rem;
+    border: 0.5rem double #cccccc;
+    color: #eeeeee;
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    width: auto;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    cursor: pointer;
+
+}
+
+button:hover {
+    background-color: green;
+  }
+
+  .head_btn{
+
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
