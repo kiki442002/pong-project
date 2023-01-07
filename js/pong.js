@@ -57,8 +57,6 @@ class Ball {
         }
         else if (this.x - this.r < 0) {
             StopGame();
-            player2.score++;
-            player2.y = height / 2;
         }
     }
 
@@ -128,9 +126,6 @@ class Player    //création de la class "Player"
 }
 
 
-
-//Function DES MOUVEMNT DES JOUEURS,BALLE,ET IA//
-
 function DirectionBalle(PlayerY, PlayerH) {    //direction de la balle en fonction de la position de la balle sur la raquette
 
     var impact = ball.y - PlayerY;   //position de la balle a l'impact sur la raquette
@@ -140,37 +135,38 @@ function DirectionBalle(PlayerY, PlayerH) {    //direction de la balle en foncti
 
 
 //Function D'ANIMATION//
-function raquette_2() {
-    if (0 < player2.y < height) {
-        player2.y += ball.vy * 0.80;  //faity bougé l'IA grâce a la vitesse en y de la balle
+function IA() {
+    if (0 <= player2.y <= height) {
+        player2.y += ball.vy * 0.85;  //fait bougé l'IA grâce a la vitesse en y de la balle
     }
 }
 
-function restartGame()     //redémarre le jeu quand un joueur a perdu ou 
+function restartGame()     //redémarre le jeu 
 {
     //dirige la prochaine balle en fonction du joueur qui a perdu
     if (ball.x > width / 2) {
         ball.x = width - 75;                  //ici le joueur de droite
         ball.y = height / 2;
-        ball.vx = -7;
+        ball.vx = -6;
     }
     else if (ball.x < width / 2) {
         ball.x = 75;
         ball.y = height / 2;           //ici le jouer de gauche
-        ball.vx = 7;
+        ball.vx = 6;
     }
 }
 
 function StopGame() {
     cancelAnimationFrame(requestID);
-    divCanvas.innerHTML = "<div id='play'><button class='game_btn' id='save_btn'>Enregistrer le score</button> <button class='game_btn' id='play_btn'>Rejouer</button></div> <canvas> </canvas>";
+    divCanvas.innerHTML =
+        divCanvas.innerHTML = "<div id='play'>Votre Score: " + player1.score + "</br><button class='game_btn' id='save_btn'>Enregistrer le score</button> <button class='game_btn' id='play_btn'>Rejouer</button></div> <canvas> </canvas>";
     playButton = document.querySelector("#play_btn");
     saveButton = document.querySelector("#save_btn");
     divButton = document.querySelector("#play");
     canvas = document.querySelector("canvas");
 
     saveButton.addEventListener('click', () => {
-        divButton.remove();
+        divButton.innerHTML = "<form action='javascript:send_score()'><label for='nickname'>Pseudo</label><input type='text' name='nickname' id='nickname'><button type='submit'>Ok</button> </form>";
     });
 
     playButton.addEventListener('click', () => {
@@ -191,8 +187,6 @@ function StopGame() {
             var canvasLocation = canvas.getBoundingClientRect();
             player1.y = (event.clientY - canvasLocation.y);
         });
-
-        raquette_2();
         animate();
     });
 
@@ -201,7 +195,7 @@ function StopGame() {
 function animate() {
     requestID = requestAnimationFrame(animate); //boucle à la fréquence d'animation de l'écran (60fps générallement)
     context.clearRect(0, 0, width, height);     //efface le canvas
-    raquette_2();
+    IA();
     context.strokeStyle = 'white';
     context.beginPath();                   //coordonné crayon virtuel 
     context.moveTo(width / 2, 0);
@@ -239,9 +233,11 @@ playButton.addEventListener('click', () => {
         var canvasLocation = canvas.getBoundingClientRect();
         player1.y = (event.clientY - canvasLocation.y);
     });
-
-    raquette_2();
     animate();
 });
+
+function send_score() {
+
+}
 
 
