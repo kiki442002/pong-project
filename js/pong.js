@@ -237,6 +237,25 @@ playButton.addEventListener('click', () => {
 });
 
 function send_score() {
+    var nickname = document.querySelector("#nickname").value;
+
+    var mysql = require('mysql');
+    var con = mysql.createConnection({
+        host: "killian.picothome.fr",
+        user: "root",
+        password: "Projetensim2023",
+        database: "pong"
+    });
+
+    con.connect(function (err) {
+        if (err) throw err;
+        console.log("Connected!");
+        var sql = `INSERT INTO player (nickname, address) VALUES ( "${nickname}" , "${player1.score}")`;
+        con.query(sql, function (err, result) {
+            if (err) throw err;
+            console.log("1 record inserted");
+        });
+    });
 
 }
 
