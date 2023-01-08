@@ -12,6 +12,11 @@
 </head>
 
 <body>
+    <div id="head">
+        <a class="head_btn" href="./php/pong.php"><button type="button">Jouer</button></a>
+        <a class="head_btn" href="index.html"><img src="./img/home.png" alt=""></a>
+        <a class="head_btn" href="./php/score.php"><button type="button">Scores</button></a>
+    </div>
     <h1>Jouer au pong</h1>
     <div id="canvas">
         <div id="play"><button class="game_btn" id="play_btn">Jouer</button></div>
