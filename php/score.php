@@ -35,7 +35,7 @@
     $row = mysqli_fetch_array($result);
 
     foreach ($row as $e) {
-        echo $e;
+        echo "Pseudo: " + $e[0] + "    Score:" + $e[1] + "</br>";
     }
     $mysqli->close(); ?>
 </body>
