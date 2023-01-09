@@ -9,6 +9,7 @@ var playButton = document.querySelector("#play_btn");
 var saveButton = document.querySelector("#save_btn");
 var divButton = document.querySelector("#play");
 const divCanvas = document.querySelector("#canvas");
+var canvas = null;
 
 const audioElement_g = new Audio('../js/pong_g.mp3'),
     audioElement_d = new Audio('../js/pong_d.mp3');
@@ -220,7 +221,7 @@ function animate() {
 playButton.addEventListener('click', () => {
     divButton.remove();
     document.querySelector("body").append(document.createElement("canvas"));
-    var canvas = document.querySelector("canvas");
+    canvas = document.querySelector("canvas");
     context = canvas.getContext("2d");
     width = screen.width * 6 / 10;   //canvas du jeu vaut 5/10 de l'écran
     height = screen.height * 6 / 10;
