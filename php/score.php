@@ -37,8 +37,7 @@
     /* if ($n > 25) {
         $n = 25;
     }*/
-    echo $n;
-    while ($row = mysqli_fetch_array($result, 3)) {
+    while ($row = mysqli_fetch_array($result, 1)) {
         printf("Name: %s  Score: %s", $row[0], $row[1]);
         echo "</br>";
     }
