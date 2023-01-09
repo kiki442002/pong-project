@@ -257,9 +257,9 @@ function send_score() {
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             alert("Score Envoyer");
-            var replayButton = document.querySelector("#play").createElement("button");
+            var replayButton = document.createElement("button");
             replayButton.setAttribute("class", "game_btn");
-            replayButton.append();
+            divButton.replayButton.append();
             raplayButton.addEventListener("click", () => {
                 divButton.remove();
                 document.querySelector("body").append(document.createElement("canvas"));
