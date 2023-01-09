@@ -79,7 +79,7 @@ class Ball {
 
                 if (this.x > width / 2) {
                     audioElement_d.play();
-                    speed = getRandomIntInclusive(74, 100) / 100;
+                    //speed = getRandomIntInclusive(74, 100) / 100;
                     console.log(speed);
                 }
                 else if (this.x < width / 2) audioElement_g.play();
@@ -92,7 +92,7 @@ class Ball {
 
                 if (this.x > width / 2) {
                     audioElement_d.play();
-                    speed = getRandomIntInclusive(74, 100) / 100;
+                    //speed = getRandomIntInclusive(74, 100) / 100;
                     console.log(speed);
                 }
                 else if (this.x < width / 2) audioElement_g.play();
