@@ -18,6 +18,8 @@
         <a class="head_btn" href="score.php"><button type="button">Scores</button></a>
     </div>
 
+    <h1>Top 25 des meilleur joueurs</h1>
+
     <?php
     $servername = 'localhost';
     $username = 'root';
@@ -31,8 +33,7 @@
         die('Erreur : ' . $conn->connect_error);
     }
     $result = $mysqli->query("SELECT * FROM `player` ORDER BY score DESC");
-    $n = mysqli_num_rows($result);
-    while ($row = mysqli_fetch_array($result, $n)) {
+    while ($row = mysqli_fetch_array($result, 25)) {
         printf("Name: %s  Score: %s", $row[0], $row[1]);
         echo "</br>";
     }
