@@ -32,7 +32,7 @@
     }
     $result = $mysqli->query("SELECT * FROM `player` ORDER BY score DESC");
     $row = $result->fetch_row();
-
+    echo mysqli_num_rows($result);
     foreach ($row as $e) {
         echo $e[1];
     }
