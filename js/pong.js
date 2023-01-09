@@ -159,6 +159,8 @@ function restartGame()     //redémarre le jeu
 
 function StopGame() {
     cancelAnimationFrame(requestID);
+    canvas.remove();
+    document.querySelector("body").append("<div id='play'></div>");
     divButton.innerHTML = "Votre Score: " + player1.score + "</br><button class='game_btn' id='save_btn'>Enregistrer le score</button> <button class='game_btn' id='play_btn'>Rejouer</button>";
     playButton = document.querySelector("#play_btn");
     saveButton = document.querySelector("#save_btn");
@@ -217,7 +219,7 @@ function animate() {
 
 
 playButton.addEventListener('click', () => {
-    playButton.remove();
+    divButton.remove();
     document.querySelector("body").append("canvas");
     context = canvas.getContext("2d");
     width = screen.width * 6 / 10;   //canvas du jeu vaut 5/10 de l'écran
