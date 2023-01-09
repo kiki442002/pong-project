@@ -18,7 +18,7 @@
         <a class="head_btn" href="score.php"><button type="button">Scores</button></a>
     </div>
 
-    <h1>Top 25 des meilleur joueurs</h1>
+    <h1>Top 25 des meilleurs joueurs</h1>
 
     <?php
     $servername = 'localhost';
