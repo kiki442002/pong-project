@@ -258,6 +258,7 @@ function send_score() {
         if (this.readyState == 4 && this.status == 200) {
             alert("Score Envoyer");
             var replayButton = document.createElement("button");
+            divButton = document.querySelector("#play");
             replayButton.setAttribute("class", "game_btn");
             divButton.replayButton.append();
             raplayButton.addEventListener("click", () => {
