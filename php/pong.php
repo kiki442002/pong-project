@@ -20,10 +20,8 @@
     </div>
 
     <h1>Jouer au pong</h1>
-    <div id="canvas">
-        <div id="play"><button class="game_btn" id="play_btn">Jouer</button></div>
-        <canvas> </canvas>
-    </div>
+    <div id="play"><button class="game_btn" id="play_btn">Jouer</button></div>
+    <canvas> </canvas>
     <script src="../js/pong.js"></script>
 </body>
 
