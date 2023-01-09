@@ -20,6 +20,7 @@ var height = null;
 var ratio = null;
 
 
+
 //LES DIFFERENTES CLASS//	
 class Ball {
     constructor(vx, vy)  //variable de construction de la balle
@@ -171,12 +172,15 @@ function StopGame() {
 
     playButton.addEventListener('click', () => {
         divButton.remove();
-        context = canvas.getContext("2d");
-        width = screen.width * 5 / 10;   //canvas du jeu vaut 5/10 de l'écran
-        height = screen.height * 5 / 10;
-        ratio = width / height;  //calcul du ratio
+        var context = canvas.getContext("2d"),
+            width = screen.width * 5 / 10,   //canvas du jeu vaut 5/10 de l'écran
+            height = screen.height * 5 / 10,
+            ratio = width / height;  //calcul du ratio
+
         canvas.width = width * ratio;
         canvas.height = height * ratio;
+        canvas.style.width = width + "px";
+        canvas.style.height = height + "px";
         context.scale(ratio, ratio);
 
         ball = new Ball(-6, 6);
@@ -217,12 +221,15 @@ function animate() {
 
 playButton.addEventListener('click', () => {
     divButton.remove();
-    context = canvas.getContext("2d");
-    width = screen.width * 5 / 10;   //canvas du jeu vaut 5/10 de l'écran
-    height = screen.height * 5 / 10;
-    ratio = width / height;  //calcul du ratio
+    var context = canvas.getContext("2d"),
+        width = screen.width * 5 / 10,   //canvas du jeu vaut 5/10 de l'écran
+        height = screen.height * 5 / 10,
+        ratio = width / height;  //calcul du ratio
+
     canvas.width = width * ratio;
     canvas.height = height * ratio;
+    canvas.style.width = width + "px";
+    canvas.style.height = height + "px";
     context.scale(ratio, ratio);
 
     ball = new Ball(-6, 6);
