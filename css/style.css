@@ -113,6 +113,7 @@ button:hover {
     margin-left: 5rem;
     margin-right: 5rem;
     height: 20rem;
+    display: inline-block;
 
 }
 
@@ -134,6 +135,7 @@ button:hover {
     float: left;
     margin-right: 1rem;
     padding: 5px;
+    text-align: center;
 
 }
 
@@ -144,6 +146,7 @@ button:hover {
     float: right;
     margin-right: 1rem;
     padding: 5px;
+    text-align: center;
 
 }
 
