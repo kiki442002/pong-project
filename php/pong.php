@@ -11,7 +11,6 @@
     <title>Jouer</title>
 </head>
 
-
 <body>
     <div id="head">
         <a class="head_btn" href="pong.php"><button type="button">Jouer</button></a>
