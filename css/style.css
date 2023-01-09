@@ -38,7 +38,8 @@ h1 {
     font-size: 1rem;
 }
 
-#canvas {
+canvas {
+    margin-top: 1rem;
     border: 0.1rem solid #FFF;
     width: 65rem;
     height: 30rem;
@@ -48,11 +49,15 @@ h1 {
 }
 
 canvas {
-    height: 100%;
-    width: 100%;
-    margin-top: 0.1rem;
+    margin-top: 1rem;
+    border: 0.1rem solid #FFF;
     cursor: none;
+    display: block;
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
 }
+
 
 button {
     font-family: 'Wallpoet';

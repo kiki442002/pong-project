@@ -5,11 +5,11 @@ var ball = null;
 var player1 = null,
     player2 = null;
 
-var canvas = document.querySelector("canvas");
 var playButton = document.querySelector("#play_btn");
 var saveButton = document.querySelector("#save_btn");
 var divButton = document.querySelector("#play");
 const divCanvas = document.querySelector("#canvas");
+var canvas = null;
 
 const audioElement_g = new Audio('../js/pong_g.mp3'),
     audioElement_d = new Audio('../js/pong_d.mp3');
@@ -18,6 +18,7 @@ var context = null;
 var width = null;
 var height = null;
 var ratio = null;
+
 
 
 //LES DIFFERENTES CLASS//	
@@ -156,27 +157,34 @@ function restartGame()     //redémarre le jeu
     }
 }
 
+
 function StopGame() {
     cancelAnimationFrame(requestID);
-    divCanvas.innerHTML =
-        divCanvas.innerHTML = "<div id='play'>Votre Score: " + player1.score + "</br><button class='game_btn' id='save_btn'>Enregistrer le score</button> <button class='game_btn' id='play_btn'>Rejouer</button></div> <canvas> </canvas>";
+    canvas.remove();
+    var divEle = document.createElement("div");
+    divEle.setAttribute("id", "play");
+    document.querySelector("body").append(divEle);
+    divButton = document.querySelector("#play");
+    divButton.innerHTML = "Votre Score: " + player1.score + "</br><button class='game_btn' id='save_btn'>Enregistrer le score</button> <button class='game_btn' id='play_btn'>Rejouer</button>";
     playButton = document.querySelector("#play_btn");
     saveButton = document.querySelector("#save_btn");
-    divButton = document.querySelector("#play");
-    canvas = document.querySelector("canvas");
 
     saveButton.addEventListener('click', () => {
-        divButton.innerHTML = "<form action='javascript:send_score()'><label for='nickname'>Pseudo</label><input type='text' name='nickname' id='nickname'><button type='submit'>Ok</button> </form>";
+        divButton.innerHTML = "<form action='javascript:send_score()' class='game_btn'><label for='nickname'>Pseudo</label><input type='text' name='nickname' id='nickname'><button type='submit'>Ok</button> </form>";
     });
 
     playButton.addEventListener('click', () => {
         divButton.remove();
+        document.querySelector("body").append(document.createElement("canvas"));
+        canvas = document.querySelector("canvas");
         context = canvas.getContext("2d");
-        width = screen.width * 5 / 10;   //canvas du jeu vaut 5/10 de l'écran
-        height = screen.height * 5 / 10;
+        width = screen.width * 6 / 10;   //canvas du jeu vaut 5/10 de l'écran
+        height = screen.height * 6 / 10;
         ratio = width / height;  //calcul du ratio
         canvas.width = width * ratio;
         canvas.height = height * ratio;
+        canvas.style.width = width + "px";
+        canvas.style.height = height + "px";
         context.scale(ratio, ratio);
 
         ball = new Ball(-6, 6);
@@ -217,12 +225,17 @@ function animate() {
 
 playButton.addEventListener('click', () => {
     divButton.remove();
+    document.querySelector("body").append(document.createElement("canvas"));
+    canvas = document.querySelector("canvas");
     context = canvas.getContext("2d");
-    width = screen.width * 5 / 10;   //canvas du jeu vaut 5/10 de l'écran
-    height = screen.height * 5 / 10;
+    width = screen.width * 6 / 10;   //canvas du jeu vaut 5/10 de l'écran
+    height = screen.height * 6 / 10;
     ratio = width / height;  //calcul du ratio
+
     canvas.width = width * ratio;
     canvas.height = height * ratio;
+    canvas.style.width = width + "px";
+    canvas.style.height = height + "px";
     context.scale(ratio, ratio);
 
     ball = new Ball(-6, 6);
