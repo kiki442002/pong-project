@@ -31,10 +31,11 @@
         die('Erreur : ' . $conn->connect_error);
     }
     $result = $mysqli->query("SELECT * FROM `player` ORDER BY score DESC");
-    $row = mysqli_fetch_row($result);
-    echo mysqli_num_rows($result);
+    $n = mysqli_num_rows($result);
+    $row = mysqli_fetch_array($result);
+
     foreach ($row as $e) {
-        echo $e[1];
+        echo $e;
     }
     $mysqli->close(); ?>
 </body>
