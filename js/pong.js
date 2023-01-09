@@ -159,11 +159,9 @@ function restartGame()     //redémarre le jeu
 
 function StopGame() {
     cancelAnimationFrame(requestID);
-    divCanvas.innerHTML =
-        divCanvas.innerHTML = "<div id='play'>Votre Score: " + player1.score + "</br><button class='game_btn' id='save_btn'>Enregistrer le score</button> <button class='game_btn' id='play_btn'>Rejouer</button></div> <canvas> </canvas>";
+    divButton.innerHTML = "Votre Score: " + player1.score + "</br><button class='game_btn' id='save_btn'>Enregistrer le score</button> <button class='game_btn' id='play_btn'>Rejouer</button>";
     playButton = document.querySelector("#play_btn");
     saveButton = document.querySelector("#save_btn");
-    divButton = document.querySelector("#play");
     canvas = document.querySelector("canvas");
 
     saveButton.addEventListener('click', () => {
@@ -172,11 +170,10 @@ function StopGame() {
 
     playButton.addEventListener('click', () => {
         divButton.remove();
-        var context = canvas.getContext("2d"),
-            width = screen.width * 5 / 10,   //canvas du jeu vaut 5/10 de l'écran
-            height = screen.height * 5 / 10,
-            ratio = width / height;  //calcul du ratio
-
+        context = canvas.getContext("2d");
+        width = screen.width * 6 / 10;   //canvas du jeu vaut 5/10 de l'écran
+        height = screen.height * 6 / 10;
+        ratio = width / height;  //calcul du ratio
         canvas.width = width * ratio;
         canvas.height = height * ratio;
         canvas.style.width = width + "px";
@@ -220,7 +217,7 @@ function animate() {
 
 
 playButton.addEventListener('click', () => {
-    divButton.remove();
+    playButton.remove();
     context = canvas.getContext("2d");
     width = screen.width * 6 / 10;   //canvas du jeu vaut 5/10 de l'écran
     height = screen.height * 6 / 10;
