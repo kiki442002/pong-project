@@ -33,8 +33,9 @@
         die('Erreur : ' . $conn->connect_error);
     }
     $result = $mysqli->query("SELECT * FROM `player` ORDER BY score DESC");
-
-    while ($row = mysqli_fetch_array($result, 2)) {
+    $i = 0;
+    while ($row = mysqli_fetch_array($result, 2) and $i <= 25) {
+        $i++;
         printf("Name: %s  Score: %s", $row[0], $row[1]);
         echo "</br>";
     }
