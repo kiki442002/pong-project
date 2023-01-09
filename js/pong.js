@@ -251,6 +251,7 @@ playButton.addEventListener('click', () => {
 
 
 function send_score() {
+    var nickname = document.querySelector("#nickname").value;
     document.querySelector("form").remove();
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -258,7 +259,7 @@ function send_score() {
             alert("Score Envoyer");
         }
     };
-    xhttp.open("GET", "/php/send_score.php", true);
+    xhttp.open("GET", `/php/send_score.php?nickname=${nickname}&score=${player1.score}`, true);
     xhttp.send();
 }
 
