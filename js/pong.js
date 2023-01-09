@@ -258,7 +258,7 @@ function send_score() {
             alert("Score Envoyer");
         }
     };
-    xhttp.open("GET", "/php/send.php", true);
+    xhttp.open("GET", "/php/send_score.php", true);
     xhttp.send();
 }
 
