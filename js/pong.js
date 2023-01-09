@@ -3,7 +3,8 @@
 var requestID = null;
 var ball = null;
 var player1 = null,
-    player2 = null;
+    player2 = null,
+    speed = null;
 
 var playButton = document.querySelector("#play_btn");
 var saveButton = document.querySelector("#save_btn");
@@ -76,7 +77,10 @@ class Ball {
         {
             if (this.y <= ptop + player.h / 2) {  //permet de svoir si la balle se trouve dans la moitie supérieur de la raquette
 
-                if (this.x > width / 2) audioElement_d.play();     //sons venant de droite ou gauche
+                if (this.x > width / 2) {
+                    audioElement_d.play();
+                    speed = getRandomIntInclusive(73, 95) / 100;
+                }
                 else if (this.x < width / 2) audioElement_g.play();
                 if (Math.abs(this.vx) < 15) this.vx *= -1.02;  //augmente la vitesse si elle est inférieur à 15
                 if (Math.abs(this.vx) > 15) this.vx *= -1;
@@ -85,7 +89,10 @@ class Ball {
             }
             if (this.y > pbottom - player.h / 2) {   //balle dans la moitié inférieur de la raquette
 
-                if (this.x > width / 2) audioElement_d.play();
+                if (this.x > width / 2) {
+                    audioElement_d.play();
+                    speed = getRandomIntInclusive(73, 95) / 100;
+                }
                 else if (this.x < width / 2) audioElement_g.play();
                 if (Math.abs(this.vx) < 15) this.vx *= -1.02;
                 if (Math.abs(this.vx) > 15) this.vx *= -1;
@@ -143,9 +150,8 @@ function getRandomIntInclusive(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
 }
 
-function IA() {
+function IA(speed) {
     if (0 <= player2.y <= height) {
-        var speed = getRandomIntInclusive(73, 95) / 100;
         player2.y += ball.vy * speed;  //fait bougé l'IA grâce a la vitesse en y de la balle
     }
 }
