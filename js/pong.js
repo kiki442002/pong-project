@@ -170,7 +170,7 @@ function StopGame() {
     saveButton = document.querySelector("#save_btn");
 
     saveButton.addEventListener('click', () => {
-        divButton.innerHTML = "<form action='javascript:send_score()' class='game_btn'><label for='nickname'>Pseudo</label><input type='text' name='nickname' id='nickname'><button type='submit'>Ok</button> </form>";
+        divButton.innerHTML = "<form action='javascript:send_score()' class='game_btn'><label for='nickname'>Pseudo</label><input type='text' name='nickname' id='nickname' required><button type='submit'>Ok</button> </form>";
     });
 
     playButton.addEventListener('click', () => {
