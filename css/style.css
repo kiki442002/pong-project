@@ -46,7 +46,9 @@ canvas {
     margin-top: 0.1rem;
     border: 0.1rem solid #FFF;
     cursor: none;
-    text-align: center;
+    display: block;
+    position: relative;
+    margin: auto;
 }
 
 button {
