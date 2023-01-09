@@ -260,8 +260,9 @@ function send_score() {
             var replayButton = document.createElement("button");
             // divButton = document.querySelector("#play");
             replayButton.setAttribute("class", "game_btn");
+            replayButton.value = "Rejouer";
             divButton.append(replayButton);
-            raplayButton.addEventListener("click", () => {
+            replayButton.addEventListener("click", () => {
                 divButton.remove();
                 document.querySelector("body").append(document.createElement("canvas"));
                 canvas = document.querySelector("canvas");
