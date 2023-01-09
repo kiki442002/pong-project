@@ -34,7 +34,7 @@
     $row = $result->fetch_row();
 
     foreach ($row as $e) {
-        echo $e[0] + "    " + $e[1] + $e[2] + "</br>";
+        echo $e;
     }
     $mysqli->close(); ?>
 </body>
