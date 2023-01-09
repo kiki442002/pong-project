@@ -14,4 +14,11 @@ if ($conn->connect_error) {
 $nickname = $_GET["nickname"];
 $score = $_GET["score"];
 
-$mysqli->query("INSERT INTO `player` (`nickname`, `score`) VALUES ('$nickname', '$score')");
+$result = $mysqli->query("SELECT * FROM `player` WHERE `nickname` = '$nickname'");
+if ($result) {
+    $mysqli->query("UPDATE `player` SET `score`='$score' WHERE `nickname`='$nickname'");
+} else {
+
+    $mysqli->query("INSERT INTO `player` (`nickname`, `score`) VALUES ('$nickname', '$score')");
+}
+$mysqli->close();
