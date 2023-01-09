@@ -44,7 +44,9 @@ h1 {
 
 canvas {
     margin-top: 0.1rem;
+    border: 0.1rem solid #FFF;
     cursor: none;
+    text-align: center;
 }
 
 button {
