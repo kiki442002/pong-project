@@ -17,6 +17,26 @@
         <a class="head_btn" href="../index.html"><img src="../img/home.png" alt=""></a>
         <a class="head_btn" href="score.php"><button type="button">Scores</button></a>
     </div>
+
+    <?php
+    $servername = 'localhost';
+    $username = 'root';
+    $password = 'Projetensim2023';
+    $dbname = 'pong';
+    //On établit la connexion
+    $mysqli = new mysqli($servername, $username, $password, $dbname);
+
+    //On vérifie la connexion
+    if ($conn->connect_error) {
+        die('Erreur : ' . $conn->connect_error);
+    }
+    $result = $mysqli->query("SELECT * FROM `player` ORDER BY score DESC");
+    $row = $result->fetch_row();
+
+    foreach ($row as $e) {
+        echo "$e[0]    $e[1]</br>";
+    }
+    $mysqli->close(); ?>
 </body>
 
 
