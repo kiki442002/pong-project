@@ -33,7 +33,8 @@
     $result = $mysqli->query("SELECT * FROM `player` ORDER BY score DESC");
     $n = mysqli_num_rows($result);
     while ($row = mysqli_fetch_array($result, $n)) {
-        printf("ID: %s  Name: %s", $row[0], $row[1]);
+        printf("Name: %s  Score: %s", $row[0], $row[1]);
+        echo "</br>";
     }
 
     mysqli_free_result($result);
