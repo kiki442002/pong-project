@@ -136,9 +136,17 @@ function DirectionBalle(PlayerY, PlayerH) {    //direction de la balle en foncti
 
 
 //Function D'ANIMATION//
+
+function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
+}
+
 function IA() {
     if (0 <= player2.y <= height) {
-        player2.y += ball.vy * 0.80;  //fait bougé l'IA grâce a la vitesse en y de la balle
+        var speed = getRandomIntInclusive(73, 95) / 100;
+        player2.y += ball.vy * speed;  //fait bougé l'IA grâce a la vitesse en y de la balle
     }
 }
 
@@ -155,28 +163,6 @@ function restartGame()     //redémarre le jeu
         ball.y = height / 2;           //ici le jouer de gauche
         ball.vx = 6;
     }
-}
-
-
-function StopGame() {
-    cancelAnimationFrame(requestID);
-    canvas.remove();
-    var divEle = document.createElement("div");
-    divEle.setAttribute("id", "play");
-    document.querySelector("body").append(divEle);
-    divButton = document.querySelector("#play");
-    divButton.innerHTML = "Votre Score: " + player1.score + "</br><button class='game_btn' id='save_btn'>Enregistrer le score</button> <button class='game_btn' id='play_btn'>Rejouer</button>";
-    playButton = document.querySelector("#play_btn");
-    saveButton = document.querySelector("#save_btn");
-
-    saveButton.addEventListener('click', () => {
-        divButton.innerHTML = "<form action='javascript:send_score()' class='game_btn'><label for='nickname'>Pseudo</label><input type='text' name='nickname' id='nickname' required><button type='submit'>Ok</button> </form>";
-    });
-
-    playButton.addEventListener('click', () => {
-        startGame();
-    });
-
 }
 
 function animate() {
@@ -226,6 +212,27 @@ function startGame() {
         player1.y = (event.clientY - canvasLocation.y);
     });
     animate();
+
+}
+
+function StopGame() {
+    cancelAnimationFrame(requestID);
+    canvas.remove();
+    var divEle = document.createElement("div");
+    divEle.setAttribute("id", "play");
+    document.querySelector("body").append(divEle);
+    divButton = document.querySelector("#play");
+    divButton.innerHTML = "Votre Score: " + player1.score + "</br><button class='game_btn' id='save_btn'>Enregistrer le score</button> <button class='game_btn' id='play_btn'>Rejouer</button>";
+    playButton = document.querySelector("#play_btn");
+    saveButton = document.querySelector("#save_btn");
+
+    saveButton.addEventListener('click', () => {
+        divButton.innerHTML = "<form action='javascript:send_score()' class='game_btn'><label for='nickname'>Pseudo</label><input type='text' name='nickname' id='nickname' required><button type='submit'>Ok</button> </form>";
+    });
+
+    playButton.addEventListener('click', () => {
+        startGame();
+    });
 
 }
 
