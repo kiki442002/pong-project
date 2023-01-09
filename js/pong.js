@@ -252,12 +252,13 @@ playButton.addEventListener('click', () => {
 
 function send_score() {
     document.querySelector("form").remove();
+    var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             alert("Score Envoyer");
         }
     };
-    xhttp.open("GET", "/php/send.php", true);
+    xhttp.open("GET", "/php/send_score.php", true);
     xhttp.send();
 }
 
