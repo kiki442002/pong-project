@@ -5,7 +5,6 @@ var ball = null;
 var player1 = null,
     player2 = null;
 
-var canvas = document.querySelector("canvas");
 var playButton = document.querySelector("#play_btn");
 var saveButton = document.querySelector("#save_btn");
 var divButton = document.querySelector("#play");
@@ -221,6 +220,7 @@ function animate() {
 playButton.addEventListener('click', () => {
     divButton.remove();
     document.querySelector("body").append(document.createElement("canvas"));
+    var canvas = document.querySelector("canvas");
     context = canvas.getContext("2d");
     width = screen.width * 6 / 10;   //canvas du jeu vaut 5/10 de l'écran
     height = screen.height * 6 / 10;
