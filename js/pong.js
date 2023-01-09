@@ -4,7 +4,7 @@ var requestID = null;
 var ball = null;
 var player1 = null,
     player2 = null,
-    speed = null;
+    speed = 0.85;
 
 var playButton = document.querySelector("#play_btn");
 var saveButton = document.querySelector("#save_btn");
