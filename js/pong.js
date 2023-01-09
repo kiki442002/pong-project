@@ -257,6 +257,7 @@ function send_score() {
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             alert("Score Envoyer");
+
         }
     };
     xhttp.open("GET", `/php/send_score.php?nickname=${nickname}&score=${player1.score}`, true);
