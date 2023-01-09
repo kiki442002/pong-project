@@ -160,8 +160,7 @@ function restartGame()     //redémarre le jeu
 function StopGame() {
     cancelAnimationFrame(requestID);
     canvas.remove();
-    divButton = document.querySelector("body").append(document.createElement("div"));
-    divButton.id = "play";
+    divButton = document.querySelector("body").append(document.createElement("div").setAttribute("id", "play"));
     divButton.innerHTML = "Votre Score: " + player1.score + "</br><button class='game_btn' id='save_btn'>Enregistrer le score</button> <button class='game_btn' id='play_btn'>Rejouer</button>";
     playButton = document.querySelector("#play_btn");
     saveButton = document.querySelector("#save_btn");
