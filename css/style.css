@@ -33,6 +33,14 @@ h1 {
     margin-top: 0.5rem;
 }
 
+#origine {
+    text-align: justify;
+    font-size: 1rem;
+    margin-top: 1rem;
+    margin-left: 4rem;
+    margin-right: 4rem;
+}
+
 #canvas {
     border: 0.1rem solid #FFF;
     width: 65rem;
@@ -91,6 +99,13 @@ button:hover {
 }
 
 #head {
+    width: fit-content;
+    margin: auto;
+    margin-bottom: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+#story {
     width: fit-content;
     margin: auto;
     margin-bottom: 1.5rem;
