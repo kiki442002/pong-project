@@ -174,28 +174,7 @@ function StopGame() {
     });
 
     playButton.addEventListener('click', () => {
-        divButton.remove();
-        document.querySelector("body").append(document.createElement("canvas"));
-        canvas = document.querySelector("canvas");
-        context = canvas.getContext("2d");
-        width = screen.width * 6 / 10;   //canvas du jeu vaut 5/10 de l'écran
-        height = screen.height * 6 / 10;
-        ratio = width / height;  //calcul du ratio
-        canvas.width = width * ratio;
-        canvas.height = height * ratio;
-        canvas.style.width = width + "px";
-        canvas.style.height = height + "px";
-        context.scale(ratio, ratio);
-
-        ball = new Ball(-6, 6);
-        player1 = new Player(15, 80);
-        player2 = new Player(width - 15, 65);
-
-        addEventListener("mousemove", (event) => {
-            var canvasLocation = canvas.getBoundingClientRect();
-            player1.y = (event.clientY - canvasLocation.y);
-        });
-        animate();
+        startGame();
     });
 
 }
@@ -223,7 +202,7 @@ function animate() {
 }
 
 
-playButton.addEventListener('click', () => {
+function startGame() {
     divButton.remove();
     document.querySelector("body").append(document.createElement("canvas"));
     canvas = document.querySelector("canvas");
@@ -247,6 +226,11 @@ playButton.addEventListener('click', () => {
         player1.y = (event.clientY - canvasLocation.y);
     });
     animate();
+
+}
+
+playButton.addEventListener('click', () => {
+    startGame();
 });
 
 
@@ -263,29 +247,7 @@ function send_score() {
             replayButton.textContent = "Rejouer";
             divButton.append(replayButton);
             replayButton.addEventListener("click", () => {
-                divButton.remove();
-                document.querySelector("body").append(document.createElement("canvas"));
-                canvas = document.querySelector("canvas");
-                context = canvas.getContext("2d");
-                width = screen.width * 6 / 10;   //canvas du jeu vaut 5/10 de l'écran
-                height = screen.height * 6 / 10;
-                ratio = width / height;  //calcul du ratio
-
-                canvas.width = width * ratio;
-                canvas.height = height * ratio;
-                canvas.style.width = width + "px";
-                canvas.style.height = height + "px";
-                context.scale(ratio, ratio);
-
-                ball = new Ball(-6, 6);
-                player1 = new Player(15, 80);
-                player2 = new Player(width - 15, 65);
-
-                addEventListener("mousemove", (event) => {
-                    var canvasLocation = canvas.getBoundingClientRect();
-                    player1.y = (event.clientY - canvasLocation.y);
-                });
-                animate();
+                startGame();
             });
 
         }
