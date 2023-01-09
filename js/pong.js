@@ -79,7 +79,8 @@ class Ball {
 
                 if (this.x > width / 2) {
                     audioElement_d.play();
-                    speed = getRandomIntInclusive(73, 95) / 100;
+                    speed = getRandomIntInclusive(74, 100) / 100;
+                    console.log(speed);
                 }
                 else if (this.x < width / 2) audioElement_g.play();
                 if (Math.abs(this.vx) < 15) this.vx *= -1.02;  //augmente la vitesse si elle est inférieur à 15
@@ -91,7 +92,8 @@ class Ball {
 
                 if (this.x > width / 2) {
                     audioElement_d.play();
-                    speed = getRandomIntInclusive(73, 95) / 100;
+                    speed = getRandomIntInclusive(74, 100) / 100;
+                    console.log(speed);
                 }
                 else if (this.x < width / 2) audioElement_g.play();
                 if (Math.abs(this.vx) < 15) this.vx *= -1.02;
