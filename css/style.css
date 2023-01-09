@@ -36,9 +36,6 @@ h1 {
 #origine {
     text-align: justify;
     font-size: 1rem;
-    margin-top: 1rem;
-    margin-left: 4rem;
-    margin-right: 4rem;
 }
 
 #canvas {
@@ -107,7 +104,45 @@ button:hover {
 
 #story {
     width: fit-content;
+    margin-left: 5rem;
+    margin-right: 5rem;
+
+}
+
+#crea1 {
+    max-width: 15rem;
     margin: auto;
-    margin-bottom: 1.5rem;
-    margin-top: 0.5rem;
+}
+
+#crea2 {
+    max-width: 15rem;
+    margin: auto;
+
+}
+
+#fig1 {
+    display: flex;
+    margin-top: 0rem;
+    flex-flow: column;
+    float: left;
+    margin-right: 1rem;
+    padding: 5px;
+
+}
+
+#fig2 {
+    display: flex;
+    margin-top: 0rem;
+    flex-flow: column;
+    float: right;
+    margin-right: 1rem;
+    padding: 5px;
+
+}
+
+figcaption {
+    color: #fff;
+    font: italic smaller sans-serif;
+    padding: 3px;
+    text-align: center;
 }
