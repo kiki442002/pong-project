@@ -222,8 +222,8 @@ function animate() {
 playButton.addEventListener('click', () => {
     divButton.remove();
     var context = canvas.getContext("2d"),
-        width = screen.width * 4.5 / 10,   //canvas du jeu vaut 5/10 de l'écran
-        height = screen.height * 4.5 / 10,
+        width = screen.width * 5 / 10,   //canvas du jeu vaut 5/10 de l'écran
+        height = screen.height * 5 / 10,
         ratio = width / height;  //calcul du ratio
 
     canvas.width = width * ratio;
