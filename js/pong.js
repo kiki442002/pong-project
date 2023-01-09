@@ -137,7 +137,7 @@ function DirectionBalle(PlayerY, PlayerH) {    //direction de la balle en foncti
 //Function D'ANIMATION//
 function IA() {
     if (0 <= player2.y <= height) {
-        player2.y += ball.vy * 0.85;  //fait bougé l'IA grâce a la vitesse en y de la balle
+        player2.y += ball.vy * 0.80;  //fait bougé l'IA grâce a la vitesse en y de la balle
     }
 }
 
