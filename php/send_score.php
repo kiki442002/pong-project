@@ -1,4 +1,6 @@
 <?php
+
+include("score.php");
 $servername = 'localhost';
 $username = 'root';
 $password = 'Projetensim2023';
