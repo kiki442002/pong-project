@@ -21,17 +21,7 @@
     <h1>Top 25 des meilleurs joueurs</h1>
 
     <?php
-    $servername = 'localhost';
-    $username = 'root';
-    $password = 'Projetensim2023';
-    $dbname = 'pong';
-    //On établit la connexion
-    $mysqli = new mysqli($servername, $username, $password, $dbname);
-
-    //On vérifie la connexion
-    if ($conn->connect_error) {
-        die('Erreur : ' . $conn->connect_error);
-    }
+    require("config.php");
     $result = $mysqli->query("SELECT * FROM `player` ORDER BY score DESC");
     $i = 0;
     while ($row = mysqli_fetch_array($result, 2) and $i <= 25) {
