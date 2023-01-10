@@ -133,7 +133,7 @@ button:hover {
     margin-top: 0rem;
     flex-flow: column;
     float: left;
-    margin-right: 1rem;
+    /* margin-right: 1rem;*/
     padding: 5px;
     text-align: center;
 
