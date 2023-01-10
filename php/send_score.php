@@ -15,5 +15,3 @@ if (!empty($row)) {
     $mysqli->query("INSERT INTO `player` (`nickname`, `score`) VALUES ('$nickname', '$score')");
 }
 $mysqli->close();
-
-//test
