@@ -4,7 +4,7 @@ var requestID = null;
 var ball = null;
 var player1 = null,
     player2 = null;
-
+var div = document.createElement("div");
 var playButton = document.querySelector("#play_btn");
 var saveButton = document.querySelector("#save_btn");
 var divButton = document.querySelector("#play");
@@ -18,7 +18,7 @@ var context = null;
 var width = null;
 var height = null;
 var ratio = null;
-
+var div = null;
 
 
 //LES DIFFERENTES CLASS//	
@@ -191,6 +191,8 @@ function animate() {
 function startGame() {
     divButton.remove();
     document.querySelector("body").append(document.createElement("canvas"));
+    div = document.createElement("div");
+    document.querySelector("body").append(div);
     canvas = document.querySelector("canvas");
     context = canvas.getContext("2d");
     width = screen.width * 6 / 10;   //canvas du jeu vaut 5/10 de l'écran
@@ -218,6 +220,7 @@ function startGame() {
 function StopGame() {
     cancelAnimationFrame(requestID);
     canvas.remove();
+    div.remove();
     var divEle = document.createElement("div");
     divEle.setAttribute("id", "play");
     document.querySelector("body").append(divEle);
