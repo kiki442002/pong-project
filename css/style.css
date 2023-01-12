@@ -3,11 +3,59 @@ html {
     width: 100%;
     padding: 0;
     font-size: 100%;
+    text-size-adjust: auto;
     color: azure;
 }
 
 #play_page {
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#flex_page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+table {
+    width: 25%;
+    margin-top: 2rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    border: solid 0.2rem azure;
+    border-radius: 1rem;
+    text-align: center;
+    border-spacing: 0;
+
+}
+
+
+th,
+td {
+    padding: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.right {
+    border-right: solid 0.1rem azure;
+
+}
+
+.left {
+    border-left: solid 0.1rem azure;
+}
+
+th.col {
+    border-bottom: solid 0.2rem azure;
+    font-size: 2rem;
+}
+
+.rang {
+    font-size: 1.8rem;
 }
 
 body {
@@ -40,23 +88,8 @@ h1 {
 }
 
 canvas {
-    margin-top: 1rem;
-    border: 0.1rem solid #FFF;
-    width: 65rem;
-    height: 30rem;
-    margin: auto;
-    margin-top: 2rem;
-
-}
-
-canvas {
-    margin-top: 1rem;
     border: 0.1rem solid #FFF;
     cursor: none;
-    display: block;
-    position: relative;
-    margin-right: auto;
-    margin-left: auto;
 }
 
 
@@ -90,6 +123,16 @@ button:hover {
     margin-right: 1rem;
 }
 
+
+#head {
+    width: fit-content;
+    margin: auto;
+    margin-bottom: 1.5rem;
+
+    margin-top: 0.5rem;
+    display: flex;
+}
+
 #play {
     text-align: center;
     height: 100%;
@@ -101,12 +144,6 @@ button:hover {
     margin-top: 18rem;
 }
 
-#head {
-    width: fit-content;
-    margin: auto;
-    margin-bottom: 1.5rem;
-    margin-top: 0.5rem;
-}
 
 #story {
     width: fit-content;
@@ -133,7 +170,6 @@ button:hover {
     margin-top: 0rem;
     flex-flow: column;
     float: left;
-    /* margin-right: 1rem;*/
     padding: 5px;
     text-align: center;
 
