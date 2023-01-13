@@ -5,6 +5,7 @@ html {
     font-size: 100%;
     text-size-adjust: auto;
     color: azure;
+
 }
 
 #play_page {
@@ -59,10 +60,8 @@ th.col {
 }
 
 body {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0.2rem;
+    /*margin: 0;
+    padding: 0.2rem;*/
     font-family: 'Wallpoet';
     background-color: black;
 }
