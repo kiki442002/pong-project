@@ -8,19 +8,50 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="shortcut icon" href="../img/mafavicon.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css?family=Wallpoet&display=swap" rel="stylesheet">
-    <title>Jouer</title>
+    <title>Contacts</title>
 </head>
 
-<body id="play_page">
+<body id="contacts_body">
     <div id="head">
         <a class="head_btn" href="pong.html"><button type="button">Jouer</button></a>
         <a class="head_btn" id="home" href="../index.html"></a>
         <a class="head_btn" href="score.php"><button type="button">Scores</button></a>
     </div>
-    <div>
-        <p>
-
-        </p>
+    <div class="contactez-nous">
+        <h1>Contactez-nous</h1>
+        <p>Un problème, une question ? N’hésitez pas à utiliser ce formulaire
+            pour
+            prendre contact avec nous !</p>
+        <form action="/page-traitement-donnees" method="post">
+            <div>
+                <label for="nom">Votre nom</label>
+                <input type="text" id="nom" name="nom" placeholder="Prénom Nom" required>
+            </div>
+            <div>
+                <label for="email">Votre e-mail</label>
+                <input type="email" id="email" name="email" placeholder="monadresse@mail.com" required>
+            </div>
+            <div>
+                <label for="sujet">Quel est le sujet de votre message ?</label>
+                <select name="sujet" id="sujet" required>
+                    <option value="" disabled selected hidden>Choisissez le sujet de votre message</option>
+                    <option value="probleme-score">Problème avec l'enregistrement de mon score</option>
+                    <option value="Bug-jeu">Bug survenue en jeu</option>
+                    <option value="autre">Autre...</option>
+                </select>
+            </div>
+            <div>
+                <label for="message">Votre message</label>
+                <textarea id="message" name="message" placeholder="Bonjour, je vous contacte car...."
+                    required></textarea>
+            </div>
+            <div>
+                <button type="submit">Envoyer mon message</button>
+            </div>
+        </form>
+    </div>
+    <div id="foot_contacts">
+        <p>kikipiicot@gmail.com // antoineriaublanc@gmail.com</p>
     </div>
 </body>
 
