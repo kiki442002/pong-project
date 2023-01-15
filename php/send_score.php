@@ -3,7 +3,7 @@ require("config.php");
 
 $nickname = $_GET["nickname"];
 $score = $_GET["score"];
-
+echo "bite";
 $result = $mysqli->query("SELECT * FROM `player` WHERE `nickname` = '$nickname'");
 $row = $result->fetch_row();
 if (!empty($row)) {
