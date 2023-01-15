@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="shortcut icon" href="../img/mafavicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/img/mafavicon.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css?family=Wallpoet&display=swap" rel="stylesheet">
     <title>Scores</title>
 </head>
@@ -14,9 +14,9 @@
 <body id="flex_page">
     <div>
         <div id="head">
-            <a class="head_btn" href="pong.html"><button type="button">Jouer</button></a>
-            <a class="head_btn" id="home" href="../index.html"></a>
-            <a class="head_btn" href="score.php"><button type="button">Scores</button></a>
+            <a class="head_btn" href="/php/pong.html"><button type="button">Jouer</button></a>
+            <a class="head_btn" id="home" href="/index.html"></a>
+            <a class="head_btn" href="/php/score.php"><button type="button">Scores</button></a>
         </div>
 
         <h1>Top 25 des meilleurs joueurs</h1>
