@@ -17,6 +17,7 @@
         <a class="head_btn" id="home" href="../index.html"></a>
         <a class="head_btn" href="score.php"><button type="button">Scores</button></a>
     </div>
+
     <div class="contactez-nous">
         <h1>Contactez-nous</h1>
         <p>Un problème, une question ? N’hésitez pas à utiliser ce formulaire
@@ -42,8 +43,7 @@
             </div>
             <div>
                 <label for="message">Votre message</label>
-                <textarea id="message" name="message" placeholder="Bonjour, je vous contacte car...."
-                    required></textarea>
+                <textarea id="message" name="message" placeholder="Bonjour, je vous contacte car...." required></textarea>
             </div>
             <div>
                 <button type="submit">Envoyer mon message</button>
@@ -56,3 +56,13 @@
 </body>
 
 </html>
+
+<?php
+if (isset($_POST['mailform'])) {
+    $header = "MIME-Version: 1.0\r\n";
+    $header .= 'From:"Pong Group"<pong.ensim@gmail.com>' . "\n";
+    $header .= 'Content-Type:text/html; charset="uft-8"' . "\n";
+    $header .= 'Content-Transfer-Encoding: 8bit';
+    mail($_POST['email'], $_POST['sujet'], $_POST['message'], $header);
+}
+?>
