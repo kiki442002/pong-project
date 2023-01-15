@@ -349,7 +349,7 @@ form div:last-child {
     margin-top: 20px;
 }
 
-form button {
+#contact_btn {
     width: 90rem;
     max-width: 30rem;
     height: 4rem;
