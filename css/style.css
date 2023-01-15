@@ -279,32 +279,32 @@ figcaption {
 }
 
 .contactez-nous {
-    width: 700px;
-    border: 1px solid;
-    border-radius: 8px;
-    padding: 0 50px 0 50px;
+    width: 45rem;
+    border: 0.1rem solid;
+    border-radius: 2rem;
+    padding: 0 2rem 0 2rem;
     background: rgb(0, 0, 0);
 }
 
 .contactez-nous>h1 {
-    font-weight: 500;
+    font-weight: normal;
 }
 
 .contactez-nous>p {
-    font-weight: 300;
+    font-weight: normal;
 }
 
 form div {
     width: 100%;
     display: flex;
     flex-direction: column;
-    min-height: 83px;
-    margin-top: 25px;
+    min-height: 5rem;
+    margin-top: 1.5rem;
 }
 
 form div>label {
-    margin-bottom: 7px;
-    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-weight: normal;
 }
 
 form div>input,
@@ -312,22 +312,22 @@ form div>select,
 form div>textarea {
     background: #616161;
     border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    font-weight: 500;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: normal;
     font-family: Montserrat, "sans-serif";
-    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
 }
 
 form div>input,
 form div>select {
-    height: 50px;
-    padding-left: 10px;
+    height: 3rem;
+    padding-left: 0.7rem;
 }
 
 form div>textarea {
-    height: 195px;
+    height: 15rem;
     padding: 15px 0px 0px 10px;
+    color: #ffffff;
 }
 
 form div>input::placeholder,
@@ -350,14 +350,11 @@ form div:last-child {
 }
 
 form button {
-    width: 450px;
-    max-width: 500px;
-    height: 60px;
+    width: 90rem;
+    max-width: 30rem;
+    height: 4rem;
     font-weight: 700;
-    font-size: 28px;
-    background: white;
-    border: rgba(48, 48, 48, 0.5) solid 1px;
-    border-radius: 5px;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    color: #303030;
+    font-size: 2rem;
+    background: rgb(0, 0, 0);
+    color: #d7d7d7;
 }
