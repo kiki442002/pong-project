@@ -23,7 +23,7 @@
         <p>Un problème, une question ? N’hésitez pas à utiliser ce formulaire
             pour
             prendre contact avec nous !</p>
-        <form action="/page-traitement-donnees" method="post">
+        <form action="/php/envoie_mail.php" method="POST">
             <div>
                 <label for="nom">Votre nom</label>
                 <input type="text" id="nom" name="nom" placeholder="Prénom Nom" required>
@@ -43,7 +43,8 @@
             </div>
             <div>
                 <label for="message">Votre message</label>
-                <textarea id="message" name="message" placeholder="Bonjour, je vous contacte car...." required></textarea>
+                <textarea id="message" name="message" placeholder="Bonjour, je vous contacte car...."
+                    required></textarea>
             </div>
             <div>
                 <button type="submit">Envoyer mon message</button>
@@ -56,13 +57,3 @@
 </body>
 
 </html>
-
-<?php
-if (isset($_POST['mailform'])) {
-    $header = "MIME-Version: 1.0\r\n";
-    $header .= 'From:"Pong Group"<pong.ensim@gmail.com>' . "\n";
-    $header .= 'Content-Type:text/html; charset="uft-8"' . "\n";
-    $header .= 'Content-Transfer-Encoding: 8bit';
-    mail($_POST['email'], $_POST['sujet'], $_POST['message'], $header);
-}
-?>
