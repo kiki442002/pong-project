@@ -217,6 +217,10 @@ figcaption {
     height: 40px;
     margin-top: 0.2rem;
     background-image: url(/img/home.png);
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
 
 }
 
@@ -259,6 +263,8 @@ figcaption {
     padding: 1rem;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+
 }
 
 
@@ -267,6 +273,7 @@ figcaption {
 #foot_contacts {
     border-top: 0.5rem double #cccccc;
     display: flex;
+    width: 100%;
     margin-top: 5rem;
     padding: 1rem;
     justify-content: center;
@@ -327,7 +334,7 @@ form div>textarea {
 
 form div>input::placeholder,
 form div>textarea::placeholder {
-    color: white;
+    color: rgba(255, 255, 255, 0.532);
 }
 
 form div>select:invalid {
@@ -353,4 +360,13 @@ form div:last-child {
 
 #sujet {
     color: #ffffff;
+}
+
+#nom,
+#email {
+    color: #ffffff;
+}
+
+.legal {
+    font-size: 0.8rem;
 }

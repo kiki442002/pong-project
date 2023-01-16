@@ -43,6 +43,7 @@ require("PHPMailer/src/SMTP.php"); ?>
             $mail->Port = 465;
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
             $mail->SMTPAuth = true;
+            $mail->CharSet = "UTF-8";
             $mail->Username = 'pong.ensim@gmail.com';
             $mail->Password = 'ebywhifnaspelhwy';
             $mail->setFrom('pong.ensim@gmail.com', 'PONG ENSIM');
@@ -102,7 +103,7 @@ require("PHPMailer/src/SMTP.php"); ?>
 
     </div>
     <div id="foot_contacts">
-        <p>kikipiicot@gmail.com // antoineriaublanc@gmail.com</p>
+        <p class="legal">PICOT Killian, RIAUBLANC Antoine tous droits réservés</p>
     </div>
 </body>
 
