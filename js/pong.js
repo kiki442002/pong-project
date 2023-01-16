@@ -1,4 +1,3 @@
-//https://www.youtube.com/watch?v=s4my97_KOjg
 
 var requestID = null;
 var ball = null;
