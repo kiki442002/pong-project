@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -14,9 +14,13 @@
 <body class="flex_page">
     <div>
         <div id="head">
-            <a class="head_btn" href="/php/pong.html"><button type="button">Jouer</button></a>
+            <a class="head_btn" href="/php/pong.html">
+                <div class="div_btn">Jouer</div>
+            </a>
             <a class="head_btn" id="home" href="/index.html"></a>
-            <a class="head_btn" href="/php/score.php"><button type="button">Scores</button></a>
+            <a class="head_btn" href="/php/score.php">
+                <div class="div_btn">Scores</div>
+            </a>
         </div>
 
         <h1>Top 25 des meilleurs joueurs</h1>
