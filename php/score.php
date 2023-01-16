@@ -11,7 +11,7 @@
     <title>Scores</title>
 </head>
 
-<body id="flex_page">
+<body class="flex_page">
     <div>
         <div id="head">
             <a class="head_btn" href="/php/pong.html"><button type="button">Jouer</button></a>

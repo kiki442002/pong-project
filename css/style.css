@@ -18,7 +18,7 @@ html {
 
 }
 
-#flex_page {
+.flex_page {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -273,38 +273,31 @@ figcaption {
 
 
 #contacts_body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
 }
 
 .contactez-nous {
-    width: 45rem;
+    max-width: 50rem;
     border: 0.1rem solid;
     border-radius: 2rem;
     padding: 0 2rem 0 2rem;
-    background: rgb(0, 0, 0);
-}
-
-.contactez-nous>h1 {
-    font-weight: normal;
-}
-
-.contactez-nous>p {
-    font-weight: normal;
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
 }
 
 form div {
     width: 100%;
     display: flex;
     flex-direction: column;
-    min-height: 5rem;
+
     margin-top: 1.5rem;
 }
 
 form div>label {
     margin-bottom: 0.5rem;
-    font-weight: normal;
 }
 
 form div>input,
@@ -314,8 +307,7 @@ form div>textarea {
     border: none;
     border-radius: 0.5rem;
     font-size: 1rem;
-    font-weight: normal;
-    font-family: Montserrat, "sans-serif";
+
 }
 
 form div>input,
@@ -340,8 +332,8 @@ form div>select:invalid {
 }
 
 form div>select option {
-    background: white;
-    color: #303030;
+    background: rgb(0, 0, 0);
+    color: #ffffff;
 }
 
 form div:last-child {
@@ -350,11 +342,12 @@ form div:last-child {
 }
 
 #contact_btn {
-    width: 90rem;
+
     max-width: 30rem;
-    height: 4rem;
-    font-weight: 700;
     font-size: 2rem;
-    background: rgb(0, 0, 0);
-    color: #d7d7d7;
+    margin-bottom: 1rem;
+}
+
+#sujet {
+    color: #ffffff;
 }
