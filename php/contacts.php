@@ -1,5 +1,6 @@
 <?php
 
+// Utilisation de PHPMailer pour l'envoie des mails
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
@@ -22,6 +23,7 @@ require("PHPMailer/src/SMTP.php"); ?>
 </head>
 
 <body id="contacts_body" class="flex_page">
+    <!-- Header -->
     <div id="head">
         <a class="head_btn" href="/php/pong.html">
             <div class="div_btn">Jouer</div>
@@ -31,11 +33,14 @@ require("PHPMailer/src/SMTP.php"); ?>
             <div class="div_btn">Scores</div>
         </a>
     </div>
+    <!--  -->
 
     <div class="contactez-nous">
         <h1>Contactez-nous</h1>
         <?php
+        // S'il y a eu une requete POST, on envoie le mail
         if (isset($_POST['sujet'])) {
+            // Conexion au serveur SMTP GMAIL
             $mail = new PHPMailer();
             $mail->isSMTP();
             $mail->SMTPDebug = SMTP::DEBUG_OFF;
@@ -46,17 +51,20 @@ require("PHPMailer/src/SMTP.php"); ?>
             $mail->CharSet = "UTF-8";
             $mail->Username = 'pong.ensim@gmail.com';
             $mail->Password = 'ebywhifnaspelhwy';
+
+            // Préparation du MAIL
             $mail->setFrom('pong.ensim@gmail.com', 'PONG ENSIM');
             $mail->addAddress('antoine.riaublanc.etu@univ-lemans.fr', 'Antoine Riaublanc');
             $mail->addAddress('killian.picot.etu@univ-lemans.fr', 'Killian Picot');
             $mail->addReplyTo($_POST['email'], $_POST['nom']);
 
-            //Set the subject line
             $mail->isHTML(true);
             $mail->Subject = $_POST["sujet"];
 
             $mail->Body = $_POST["message"] . "  --------------  " . $_POST['nom'] . "  --------------  " . $_POST['email'];
             $mail->AltBody = $_POST["message"] . "  --------------  " . $_POST['nom'] . "  --------------  " . $_POST['email'];
+
+            // Envoie du Mail
             if (!$mail->send()) {
         ?>
                 <p>On dirait qu'il y a eu une erreur votre message ne nous est pas parvenu...</p>
@@ -66,7 +74,9 @@ require("PHPMailer/src/SMTP.php"); ?>
                 <p>Votre message nous a été envoyé !</p>
             <?php
             }
-        } else {
+        }
+        // Sinon on affiche le formulaire
+        else {
             ?>
             <p>Un problème, une question ? N’hésitez pas à utiliser ce formulaire
                 pour
@@ -102,9 +112,11 @@ require("PHPMailer/src/SMTP.php"); ?>
         ?>
 
     </div>
+    <!-- footer -->
     <div id="foot_contacts">
         <p class="legal">PICOT Killian, RIAUBLANC Antoine tous droits réservés</p>
     </div>
+    <!--  -->
 </body>
 
 </html>

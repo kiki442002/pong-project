@@ -14,6 +14,7 @@
 <body>
     <div class="flex_page">
         <div>
+            <!-- header -->
             <div id="head">
                 <a class="head_btn" href="/php/pong.html">
                     <div class="div_btn">Jouer</div>
@@ -23,6 +24,7 @@
                     <div class="div_btn">Scores</div>
                 </a>
             </div>
+            <!--  -->
 
             <h1>Top 25 des meilleurs joueurs</h1>
         </div>
@@ -36,6 +38,7 @@
             require("config.php");
             $result = $mysqli->query("SELECT * FROM `player` ORDER BY score DESC");
             $i = 0;
+            // Affichage des 25 premières lignes de la requète dans le tableau
             while ($row = mysqli_fetch_array($result, 2) and $i < 25) {
                 $i++;
                 echo "<tr>";
@@ -52,12 +55,14 @@
 
 
     </div>
+    <!-- footer -->
     <div id="foot_home">
         <a href="/php/contacts.php">
             <div id="contacts_btn" class="div_btn">Contacts</div>
         </a>
         <p class="legal">PICOT Killian, RIAUBLANC Antoine tous droits réservés</p>
     </div>
+    <!--  -->
 </body>
 
 

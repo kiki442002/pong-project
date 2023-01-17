@@ -1,8 +1,9 @@
-
+// Variable Global
 var requestID = null;
 var ball = null;
 var player1 = null,
     player2 = null;
+
 var div = document.createElement("div");
 var playButton = document.querySelector("#play_btn");
 var saveButton = document.querySelector("#save_btn");
@@ -22,7 +23,7 @@ var div = null;
 
 //LES DIFFERENTES CLASS//	
 class Ball {
-    constructor(vx, vy)  //variable de construction de la balle
+    constructor(vx, vy)  //fonction de construction de la balle
     {
         this.x = width / 2;
         this.y = height / 2;
@@ -48,7 +49,7 @@ class Ball {
             this.vy *= -1;
         }
 
-        if (this.x + this.r > width)   //si joueur droit perd +1 score du joueur gauche
+        if (this.x + this.r > width)   //si l'IA  perd +1 score
         {
             restartGame();
             player1.score++;
@@ -56,7 +57,7 @@ class Ball {
 
         }
         else if (this.x - this.r < 0) {
-            StopGame();
+            StopGame(); //Arret du jeu si le joueur a perdu
         }
     }
 
@@ -79,7 +80,7 @@ class Ball {
                 else if (this.x < width / 2) audioElement_g.play();
                 if (Math.abs(this.vx) < 15) this.vx *= -1.02;  //augmente la vitesse si elle est inférieur à 15
                 if (Math.abs(this.vx) > 15) this.vx *= -1;
-                this.vy = -Math.abs(this.vy);     //balle va vers le haut( vnégatif)
+                this.vy = -Math.abs(this.vy);     //balle va vers le haut( vy négatif)
                 DirectionBalle(player.y, player.h);//applique le ratio pour avoir la direction de la balle (voir function DirectionBalle)
             }
             if (this.y > pbottom - player.h / 2) {   //balle dans la moitié inférieur de la raquette
@@ -106,7 +107,7 @@ class Ball {
 
 class Player    //création de la class "Player"
 {
-    constructor(x, h)    //valeur de chaque raquette
+    constructor(x, h)    //hauteur et position x de chaque raquette
     {
         this.x = x;
         this.y = height / 2;
@@ -130,38 +131,33 @@ function DirectionBalle(PlayerY, PlayerH) {    //direction de la balle en foncti
 
     var impact = ball.y - PlayerY;   //position de la balle a l'impact sur la raquette
     var ratio = PlayerH / (PlayerH / 2);         //calcul d'un ratio entre 0 et 10
-    ball.vy = Math.round(impact * ratio / 10);   //applique un valeur arrondi du ratio sur la vitesse en y
+    ball.vy = Math.round(impact * ratio / 10);   //applique une valeur arrondi du ratio sur la vitesse en y
 }
 
 
 //Function D'ANIMATION//
 
+// Calcul un nombre aléatoire
 function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
 }
 
+// fonction qui fait bouger l'IA
 function IA() {
     if (0 <= player2.y <= height) {
+        // Calcul d'une vitesse aléatoire entre 120% et 65% de la vitesse de la balle
         let speed = getRandomIntInclusive(65, 120) / 100;
-        player2.y += ball.vy * speed;  //fait bougé l'IA grâce a la vitesse en y de la balle
+        player2.y += ball.vy * speed;
     }
 }
 
-function restartGame()     //redémarre le jeu 
+function restartGame()     //redémarre le jeu si le joueur a gagner un point
 {
-    //dirige la prochaine balle en fonction du joueur qui a perdu
-    if (ball.x > width / 2) {
-        ball.x = width - 75;                  //ici le joueur de droite
-        ball.y = height / 2;
-        ball.vx = -6;
-    }
-    else if (ball.x < width / 2) {
-        ball.x = 75;
-        ball.y = height / 2;           //ici le jouer de gauche
-        ball.vx = 6;
-    }
+    ball.x = width - 75;
+    ball.y = height / 2;
+    ball.vx = -6;
 }
 
 function animate() {
@@ -188,6 +184,7 @@ function animate() {
 
 
 function startGame() {
+    // Créé le canvas et retire la divion d'alignement pour qu'il soit au milieu
     document.querySelector("#align").remove();
     divButton.remove();
     document.querySelector("body").append(document.createElement("canvas"));
@@ -195,32 +192,42 @@ function startGame() {
     document.querySelector("body").append(div);
     canvas = document.querySelector("canvas");
     context = canvas.getContext("2d");
-    width = screen.width * 6 / 10;   //canvas du jeu vaut 5/10 de l'écran
+    width = screen.width * 6 / 10;   //canvas du jeu vaut 6/10 de l'écran
     height = screen.height * 6 / 10;
     ratio = width / height;  //calcul du ratio
 
+    // Préparation du canvas
     canvas.width = width * ratio;
     canvas.height = height * ratio;
     canvas.style.width = width + "px";
     canvas.style.height = height + "px";
     context.scale(ratio, ratio);
 
+    // Création des classes
     ball = new Ball(-6, 6);
     player1 = new Player(15, 80);
     player2 = new Player(width - 15, 65);
 
+    // Ecoute de la position de la souris
     addEventListener("mousemove", (event) => {
         var canvasLocation = canvas.getBoundingClientRect();
         player1.y = (event.clientY - canvasLocation.y);
     });
+
+    // Démare le jeu
     animate();
 
 }
 
 function StopGame() {
+    // Stop l'animation
     cancelAnimationFrame(requestID);
+
+    // retire le canvas
     canvas.remove();
     div.remove();
+
+    // Ajoute les boutons pour rejouer ou enregistrer le score
     var divEle = document.createElement("div");
     divEle.setAttribute("id", "play");
     document.querySelector("body").append(divEle);
@@ -231,21 +238,26 @@ function StopGame() {
     var align = document.createElement("div");
     align.setAttribute('id', 'align');
     document.querySelector("body").append(align);
+
+    // Affichage du formulaire d'enregistrement du score
     saveButton.addEventListener('click', () => {
         divButton.innerHTML = "<form action='javascript:send_score()' class='game_btn'><label for='nickname' id='label_nickname'>Pseudo</label><input type='text' name='nickname' id='nickname' required maxlength='15'><button type='submit' id='submit'>Ok</button> </form>";
     });
 
+    // rejoue
     playButton.addEventListener('click', () => {
         startGame();
     });
 
 }
 
+// Bouton commencer
 playButton.addEventListener('click', () => {
     startGame();
 });
 
 
+// Fonction Ajax qui envoie le score a la bdd
 function send_score() {
     var nickname = document.querySelector("#nickname").value;
     document.querySelector("form").remove();

@@ -1,8 +1,10 @@
 <?php
+// Connexion a la base de donées
 $servername = 'localhost';
 $username = 'root';
 $password = '';
 $dbname = 'pong';
+
 //On établit la connexion
 $mysqli = new mysqli($servername, $username, $password, $dbname);
 
