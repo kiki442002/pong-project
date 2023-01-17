@@ -1,3 +1,4 @@
+/*Général = ce qui affecte toutes les pages*/
 html {
     height: 100%;
     width: 100%;
@@ -7,35 +8,11 @@ html {
     color: azure;
 }
 
-#play_page {
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-
-}
-
 .flex_page {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
-table {
-    width: 25%;
-    margin-top: 2rem;
-    margin-right: 1rem;
-    margin-left: 1rem;
-    border: solid 0.2rem azure;
-    border-radius: 1rem;
-    text-align: center;
-    border-spacing: 0;
-
-}
-
 
 th,
 td {
@@ -43,23 +20,14 @@ td {
     font-size: 1.3rem;
 }
 
-.right {
-    border-right: solid 0.1rem azure;
 
-}
-
-.left {
-    border-left: solid 0.1rem azure;
-}
 
 th.col {
     border-bottom: solid 0.2rem azure;
     font-size: 2rem;
 }
 
-.rang {
-    font-size: 1.8rem;
-}
+
 
 body {
     font-family: 'Wallpoet';
@@ -79,28 +47,14 @@ h2 {
     color: rgb(139, 207, 38);
 }
 
-#sub {
-    text-align: center;
-    margin: auto;
-    font-size: 1.25rem;
-    margin-top: 0.5rem;
-}
-
-.origine {
-    text-align: justify;
-    font-size: 1rem;
-}
-
 p {
     line-height: 1.5rem;
 }
 
-canvas {
-    border: 0.1rem solid #FFF;
-    cursor: none;
-}
+/*---------------------------------------------------------------------------------------------*/
 
 
+/*Header = apparaît en haut de chaque page --> comprend les trois boutons*/
 button,
 .div_btn {
     font-family: 'Wallpoet';
@@ -128,10 +82,6 @@ button:hover,
     border-color: #3e3e3e;
 }
 
-#txt_score {
-    font-size: 1.5rem;
-}
-
 .head_btn {
 
     margin-bottom: 1rem;
@@ -139,7 +89,6 @@ button:hover,
     margin-right: 1rem;
 
 }
-
 
 #head {
     width: fit-content;
@@ -149,6 +98,18 @@ button:hover,
     display: flex;
 }
 
+#home:hover {
+    background-image: url(/img/home_hover.png);
+}
+
+/*---------------------------------------------------------------------------------------------*/
+
+/*Page de jeu*/
+#txt_score {
+    font-size: 1.5rem;
+}
+
+
 #play {
     text-align: center;
 }
@@ -157,14 +118,36 @@ button:hover,
     vertical-align: baseline;
 }
 
-
-#story {
-    margin-left: 5rem;
-    margin-right: 5rem;
-    display: inline-block;
+.right {
+    border-right: solid 0.1rem azure;
 
 }
 
+.left {
+    border-left: solid 0.1rem azure;
+}
+
+canvas {
+    border: 0.1rem solid #FFF;
+    cursor: none;
+}
+
+#play_page {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+}
+
+/*---------------------------------------------------------------------------------------------*/
+
+
+
+/*Images et légendes*/
 #crea1 {
     max-width: 10rem;
     margin: auto;
@@ -204,12 +187,27 @@ figcaption {
     text-align: center;
 }
 
+/*---------------------------------------------------------------------------------------------*/
+
+/*Textes explicatifs de la page Home*/
 .intro {
     text-align: justify;
     margin-left: 5rem;
     margin-right: 5rem;
     margin-top: 1rem;
     font-size: 1rem;
+}
+
+.origine {
+    text-align: justify;
+    font-size: 1rem;
+}
+
+#sub {
+    text-align: center;
+    margin: auto;
+    font-size: 1.25rem;
+    margin-top: 0.5rem;
 }
 
 #home {
@@ -224,10 +222,16 @@ figcaption {
 
 }
 
-#home:hover {
-    background-image: url(/img/home_hover.png);
+#story {
+    margin-left: 5rem;
+    margin-right: 5rem;
+    display: inline-block;
+
 }
 
+/*---------------------------------------------------------------------------------------------*/
+
+/*Enregistrement du score et du pseudonyme*/
 #label_nickname {
     font-size: 1.5rem;
 }
@@ -247,10 +251,29 @@ figcaption {
     cursor: pointer;
 }
 
+table {
+    width: 25%;
+    margin-top: 2rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    border: solid 0.2rem azure;
+    border-radius: 1rem;
+    text-align: center;
+    border-spacing: 0;
+
+}
+
+.rang {
+    font-size: 1.8rem;
+}
+
 #submit {
     margin-top: 1rem;
 }
 
+/*---------------------------------------------------------------------------------------------*/
+
+/*Footer = apparaît en bas des pages home, score et contacts mais diffère dans contacts */
 #contacts_btn {
     font-size: 0.8rem;
     align-items: center;
@@ -267,9 +290,6 @@ figcaption {
 
 }
 
-
-
-/*CSS de la page de contacts*/
 #foot_contacts {
     border-top: 0.5rem double #cccccc;
     display: flex;
@@ -280,7 +300,16 @@ figcaption {
     align-items: center;
 }
 
+#contact_btn {
 
+    max-width: 30rem;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+/*---------------------------------------------------------------------------------------------*/
+
+/*Formulaire de la page de contacts*/
 
 #contacts_body {
     justify-content: space-between;
@@ -351,13 +380,6 @@ form div:last-child {
     margin-top: 20px;
 }
 
-#contact_btn {
-
-    max-width: 30rem;
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
-
 #sujet {
     color: #ffffff;
 }
@@ -370,3 +392,5 @@ form div:last-child {
 .legal {
     font-size: 0.8rem;
 }
+
+/*---------------------------------------------------------------------------------------------*/
